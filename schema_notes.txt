@@ -1,3 +1,21 @@
+resources movies: do
+	resources rotten_tomatoes: do
+		resources scores:
+	end
+	resources imdb_data_points:
+end
+
+
+
+
+fight_club = Movie.find_by_name('fight club')
+
+fight_club.tweets.count 
+=> (1)
+
+
+
+
 System has many Services
 System has many Movies
 
@@ -45,12 +63,12 @@ http://ondras.zarovi.cz/sql/demo/
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="457" y="271" name="movies">
+</datatypes><table x="471" y="232" name="movies">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="title" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="default" null="1" autoincrement="0">
 <datatype>BINARY</datatype>
@@ -65,7 +83,7 @@ http://ondras.zarovi.cz/sql/demo/
 <part>title</part>
 </key>
 </table>
-<table x="218" y="628" name="imdb_data_points">
+<table x="138" y="644" name="imdb_data_points">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -98,7 +116,7 @@ http://ondras.zarovi.cz/sql/demo/
 <part>id</part>
 </key>
 </table>
-<table x="175" y="467" name="rotten_tomatoes">
+<table x="132" y="438" name="rotten_tomatoes">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -113,7 +131,7 @@ http://ondras.zarovi.cz/sql/demo/
 <part>id</part>
 </key>
 </table>
-<table x="470" y="623" name="tweets">
+<table x="402" y="654" name="tweets">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -121,14 +139,14 @@ http://ondras.zarovi.cz/sql/demo/
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="movies" row="id" />
 </row>
-<row name="tweets" null="1" autoincrement="0">
+<row name="num" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="657" y="740" name="ebert_stars">
+<table x="658" y="733" name="ebert_stars">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -164,7 +182,7 @@ http://ondras.zarovi.cz/sql/demo/
 <part>id</part>
 </key>
 </table>
-<table x="716" y="271" name="services">
+<table x="764" y="237" name="services">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>

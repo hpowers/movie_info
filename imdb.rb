@@ -49,7 +49,13 @@ class Imdb
 
   def movie_meter
     # search ranking on imdb
-    @search_data.at_css('a#meterRank.top100').text.strip
+
+    begin
+      @search_data.at_css('a#meterRank.top100').text.strip
+    rescue NoMethodError => e
+      0
+    end
+    
   end
 
   def budget
