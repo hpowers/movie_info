@@ -1,21 +1,3 @@
-resources movies: do
-	resources rotten_tomatoes: do
-		resources scores:
-	end
-	resources imdb_data_points:
-end
-
-
-
-
-fight_club = Movie.find_by_name('fight club')
-
-fight_club.tweets.count 
-=> (1)
-
-
-
-
 System has many Services
 System has many Movies
 
